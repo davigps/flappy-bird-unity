@@ -16,9 +16,17 @@ public class Bird : MonoBehaviour {
     void Update() {
         GetPlayerInput();
         RotateBird();
+
+        if (transform.position.y > 13) {
+            RestartGame();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
+        RestartGame();
+    }
+
+    private void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
