@@ -2,9 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour {
-    public float speed = 4;
-    public float force = 600;
+    public float speed;
+    public float force;
     private Rigidbody2D body;
+    private float rotationZ;
+    public float rotationSpeed;
 
     void Start() {
         body = GetComponent<Rigidbody2D>();
@@ -12,6 +14,15 @@ public class Bird : MonoBehaviour {
     }
 
     void Update() {
+        GetPlayerInput();
+        RotateBird();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void GetPlayerInput() {
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
 
@@ -23,11 +34,18 @@ public class Bird : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    private void ImpulseBird() {
+        body.AddForce(Vector2.up * force);
     }
 
-    void ImpulseBird() {
-        body.AddForce(Vector2.up * force);
+    private void RotateBird() {
+        if (body.velocity.y > 0) {
+            rotationZ += Time.deltaTime * rotationSpeed;
+        } else {
+            rotationZ -= Time.deltaTime * (rotationSpeed * 0.8f);
+        }
+        rotationZ = rotationZ > 30 ? 30 : rotationZ;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotationZ);
     }
 }
