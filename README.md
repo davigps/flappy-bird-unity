@@ -2,7 +2,7 @@
 
 ## About
 
-The assets and main idea behind this project is from [this great tutorial of NoobTuts](https://noobtuts.com/unity/2d-flappy-bird-game). The aim was to improve unity main concepts necessary to build this game. I followed the tutorial, as well as, improve the final game, making randomly generated obstacles, gui points count and added free sound effects.
+The assets and main idea behind this project are from this great tutorial of NoobsTuts. The aim was to improve Unity's main concepts necessary to build this game. After the tutorial, I improved the final game by making randomly generated obstacles, points and added free sound effects.
 
 `Attention: Only play on portrait mode.`
 
