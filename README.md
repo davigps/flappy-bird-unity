@@ -8,4 +8,4 @@ The assets and main idea behind this project is from [this great tutorial of Noo
 
 ## Screenshot
 
-<!-- <img src="bird.gif" width="300" /> -->
+<img src="bird.gif" width="300" />
