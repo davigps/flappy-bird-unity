@@ -52,7 +52,10 @@ public class Bird : MonoBehaviour {
         } else {
             rotationZ -= Time.deltaTime * (rotationSpeed * 0.8f);
         }
-        rotationZ = rotationZ > 30 ? 30 : rotationZ;
+
+        if (Mathf.Abs(rotationZ) > 30) {
+            rotationZ = rotationZ > 0 ? 30 : -30;
+        }
 
         transform.rotation = Quaternion.Euler(0, 0, rotationZ);
     }
