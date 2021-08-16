@@ -1407,6 +1407,10 @@ PrefabInstance:
       propertyPath: bird
       value: 
       objectReference: {fileID: 2036613707}
+    - target: {fileID: 2793478151181041172, guid: 7c4ca7a156f7a4ffeb835a96661844d8, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2793478151181041175, guid: 7c4ca7a156f7a4ffeb835a96661844d8, type: 3}
       propertyPath: m_RootOrder
       value: 0
