@@ -1,15 +1,19 @@
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour {
-    
     public Transform upLog;
     public Transform downLog;
     public bool isDownObstacle = false;
     private bool alreadyCreated = false;
     private bool gotPoint = false;
+    private GameObject bird;
+
+    void Start() {
+        bird = GameObject.Find("bird_0");
+    }
 
     void Update() {
-        float birdX = GameObject.Find("bird_0").transform.position.x;
+        float birdX = bird.transform.position.x;
 
         if (isDownObstacle) {
             if (GetComponent<Renderer>().isVisible && !alreadyCreated) {
