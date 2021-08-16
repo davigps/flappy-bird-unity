@@ -4,12 +4,18 @@ public class Obstacle : MonoBehaviour {
     public Transform upLog;
     public Transform downLog;
     public bool isDownObstacle = false;
+    public float speed;
     private bool alreadyCreated = false;
     private bool gotPoint = false;
     private GameObject bird;
+    private Rigidbody2D body;
 
     void Start() {
+        body = GetComponent<Rigidbody2D>();
         bird = GameObject.Find("bird_0");
+
+        body.velocity = Vector2.up * speed;
+        InvokeRepeating("Switch", 0, 2);
     }
 
     void Update() {
@@ -40,7 +46,21 @@ public class Obstacle : MonoBehaviour {
         Vector3 upLogPosition = new Vector3(nextX, targetY + deltaY, transform.position.z);
         Vector3 downLogPosition = new Vector3(nextX, targetY - deltaY, transform.position.z);
 
-        Instantiate(upLog, upLogPosition, Quaternion.identity);
-        Instantiate(downLog, downLogPosition, Quaternion.identity);
+        Transform upLogObject = Instantiate(upLog, upLogPosition, Quaternion.identity);
+        Transform downLogObject = Instantiate(downLog, downLogPosition, Quaternion.identity);
+
+        bool shouldMove = Random.Range(1, 10) % 3 == 0;
+        
+        if (shouldMove) {
+            upLogObject.GetComponent<Obstacle>().speed = 1;
+            downLogObject.GetComponent<Obstacle>().speed = 1;
+        } else {
+            upLogObject.GetComponent<Obstacle>().speed = 0;
+            downLogObject.GetComponent<Obstacle>().speed = 0;
+        }
+    }
+
+    void Switch() {
+        body.velocity *= -1;
     }
 }
