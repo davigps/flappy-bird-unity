@@ -15,8 +15,10 @@ The assets and main idea behind this project are from [this great tutorial of No
 
 `Attention: Only play on portrait mode. You can use space key or touch screen to jump.`
 
+Landscape image is from (https://wallpapercave.com/w/wp6099400).
+
 ## Screenshots
 
-<img src="bird.gif" width="300" />
+<img src="bird.gif" width="200" />
 
-<img src="mainMenu.png" width="300" />
+<img src="mainMenu.jpg" width="200" />
