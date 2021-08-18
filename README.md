@@ -1,3 +1,5 @@
+<img width="100" src="./Assets/Resources/UI/feather.png" />
+
 # Unity's Flappy Bird
 
 ## About
