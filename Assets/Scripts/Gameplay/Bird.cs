@@ -28,12 +28,12 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        LevelManager.levelManager.UpdateHighscore();
         RestartGame();
     }
 
     private void RestartGame()
     {
+        LevelManager.levelManager.UpdateHighscore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
