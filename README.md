@@ -19,6 +19,10 @@ Landscape image is from (https://wallpapercave.com/w/wp6099400).
 
 ## Screenshots
 
-<img src="bird.gif" width="200" />
+Gameplay             |  Main Menu
+:-------------------------:|:-------------------------:
+<img src="./bird.gif" width="300" />  | <img src="./mainMenu.jpg" width="300" />
 
-<img src="mainMenu.jpg" width="200" />
+
+
+
