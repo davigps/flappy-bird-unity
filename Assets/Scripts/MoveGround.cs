@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveGround : MonoBehaviour
 {
-    public float speed = 2f;
+    public float speed = 1f;
     public Transform target;
 
 
