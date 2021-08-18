@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager levelManager;
 
     private int currentPoints = 0;
+    private int highscore;
 
     public Text pointsText;
 
@@ -18,6 +19,7 @@ public class LevelManager : MonoBehaviour
         if (levelManager == null)
         {
             levelManager = this;
+            highscore = PlayerPrefs.GetInt("Highscore");
         }
         else if (levelManager != this)
         {
@@ -37,6 +39,15 @@ public class LevelManager : MonoBehaviour
         else
         {
             pointAudio.Play();
+        }
+    }
+
+    public void UpdateHighscore()
+    {
+        if (currentPoints > highscore)
+        {
+            highscore = currentPoints;
+            PlayerPrefs.SetInt("Highscore", highscore);
         }
     }
 }
