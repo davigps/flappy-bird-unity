@@ -13,16 +13,12 @@ The assets and main idea behind this project are from [this great tutorial of No
 - adding free sound effects;
 - adding highscore;
 
-`Attention: Only play on portrait mode. You can use space key or touch screen to jump.`
-
 Landscape image is from (https://wallpapercave.com/w/wp6099400).
+
+`Attention: Only play on portrait mode. You can use space key or touch screen to jump.`
 
 ## Screenshots
 
-Gameplay             |  Main Menu
-:-------------------------:|:-------------------------:
-<img src="./bird.gif" width="300" />  | <img src="./mainMenu.jpg" width="300" />
-
-
-
-
+|               Gameplay               |                Main Menu                 |
+| :----------------------------------: | :--------------------------------------: |
+| <img src="./bird.gif" width="300" /> | <img src="./mainMenu.jpg" width="300" /> |
