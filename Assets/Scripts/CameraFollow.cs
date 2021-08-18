@@ -1,9 +1,11 @@
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow : MonoBehaviour
+{
     public Transform target;
 
-    void LateUpdate() {
+    void LateUpdate()
+    {
         if (target == null)
             return;
 

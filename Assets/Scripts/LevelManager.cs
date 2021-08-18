@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
     public static LevelManager levelManager;
 
@@ -12,21 +13,29 @@ public class LevelManager : MonoBehaviour {
     public AudioSource pointAudio;
     public AudioSource specialAudio;
 
-    void Awake() {
-        if (levelManager == null) {
+    void Awake()
+    {
+        if (levelManager == null)
+        {
             levelManager = this;
-        } else if (levelManager != this) {
+        }
+        else if (levelManager != this)
+        {
             Destroy(gameObject);
         }
     }
 
-    public void UpdatePoints() {
+    public void UpdatePoints()
+    {
         currentPoints++;
         pointsText.text = currentPoints.ToString();
 
-        if (currentPoints % 10 == 0) {
+        if (currentPoints % 10 == 0)
+        {
             specialAudio.Play();
-        } else {
+        }
+        else
+        {
             pointAudio.Play();
         }
     }

@@ -1,6 +1,7 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour {
+public class Obstacle : MonoBehaviour
+{
     public Transform upLog;
     public Transform downLog;
     public bool isDownObstacle = false;
@@ -10,7 +11,8 @@ public class Obstacle : MonoBehaviour {
     private GameObject bird;
     private Rigidbody2D body;
 
-    void Start() {
+    void Start()
+    {
         body = GetComponent<Rigidbody2D>();
         bird = GameObject.Find("bird_0");
 
@@ -18,27 +20,33 @@ public class Obstacle : MonoBehaviour {
         InvokeRepeating("Switch", 0, 2);
     }
 
-    void Update() {
+    void Update()
+    {
         float birdX = bird.transform.position.x;
 
-        if (isDownObstacle) {
-            if (GetComponent<Renderer>().isVisible && !alreadyCreated) {
+        if (isDownObstacle)
+        {
+            if (GetComponent<Renderer>().isVisible && !alreadyCreated)
+            {
                 CreateNextObstacles();
                 alreadyCreated = true;
             }
 
-            if (!gotPoint && transform.position.x < birdX) {
+            if (!gotPoint && transform.position.x < birdX)
+            {
                 LevelManager.levelManager.UpdatePoints();
                 gotPoint = true;
             }
         }
 
-        if (transform.position.x < birdX - 6) {
+        if (transform.position.x < birdX - 6)
+        {
             Destroy(gameObject);
         }
     }
 
-    void CreateNextObstacles() {
+    void CreateNextObstacles()
+    {
         float nextX = transform.position.x + Random.Range(6, 10);
         float targetY = Random.Range(11f, -2.5f);
         float deltaY = Random.Range(10f, 11f);
@@ -50,17 +58,21 @@ public class Obstacle : MonoBehaviour {
         Transform downLogObject = Instantiate(downLog, downLogPosition, Quaternion.identity);
 
         bool shouldMove = Random.Range(1, 10) % 3 == 0;
-        
-        if (shouldMove) {
+
+        if (shouldMove)
+        {
             upLogObject.GetComponent<Obstacle>().speed = 1;
             downLogObject.GetComponent<Obstacle>().speed = 1;
-        } else {
+        }
+        else
+        {
             upLogObject.GetComponent<Obstacle>().speed = 0;
             downLogObject.GetComponent<Obstacle>().speed = 0;
         }
     }
 
-    void Switch() {
+    void Switch()
+    {
         body.velocity *= -1;
     }
 }

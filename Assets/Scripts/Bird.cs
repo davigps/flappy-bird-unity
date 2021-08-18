@@ -1,59 +1,76 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Bird : MonoBehaviour {
+public class Bird : MonoBehaviour
+{
     public float speed;
     public float force;
     private Rigidbody2D body;
     private float rotationZ;
     public float rotationSpeed;
 
-    void Start() {
+    void Start()
+    {
         body = GetComponent<Rigidbody2D>();
         body.velocity = Vector2.right * speed;
     }
 
-    void Update() {
+    void Update()
+    {
         GetPlayerInput();
         RotateBird();
 
-        if (transform.position.y > 13) {
+        if (transform.position.y > 13)
+        {
             RestartGame();
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         RestartGame();
     }
 
-    private void RestartGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    private void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    private void GetPlayerInput() {
-        if (Input.touchCount > 0) {
+    private void GetPlayerInput()
+    {
+        if (Input.touchCount > 0)
+        {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began) {
+            if (touch.phase == TouchPhase.Began)
+            {
                 ImpulseBird();
             }
-        } else if (Input.GetKeyDown(KeyCode.Space)) {
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
             ImpulseBird();
         }
     }
 
-    private void ImpulseBird() {
+    private void ImpulseBird()
+    {
         body.AddForce(Vector2.up * force);
     }
 
-    private void RotateBird() {
-        if (body.velocity.y > 0) {
+    private void RotateBird()
+    {
+        if (body.velocity.y > 0)
+        {
             rotationZ += Time.deltaTime * rotationSpeed;
-        } else {
+        }
+        else
+        {
             rotationZ -= Time.deltaTime * (rotationSpeed * 0.8f);
         }
 
-        if (Mathf.Abs(rotationZ) > 30) {
+        if (Mathf.Abs(rotationZ) > 30)
+        {
             rotationZ = rotationZ > 0 ? 30 : -30;
         }
 
