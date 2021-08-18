@@ -20,6 +20,10 @@ public class LevelManager : MonoBehaviour
         {
             levelManager = this;
             highscore = PlayerPrefs.GetInt("Highscore");
+
+            float appVolume = PlayerPrefs.GetFloat("Volume");
+            specialAudio.volume = appVolume;
+            pointAudio.volume = appVolume;
         }
         else if (levelManager != this)
         {
