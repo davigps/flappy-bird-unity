@@ -21,14 +21,21 @@ public class LevelManager : MonoBehaviour
             levelManager = this;
             highscore = PlayerPrefs.GetInt("Highscore");
 
-            float appVolume = PlayerPrefs.GetFloat("Volume");
-            specialAudio.volume = appVolume;
-            pointAudio.volume = appVolume;
+            GetAudioPreferences();
         }
         else if (levelManager != this)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void GetAudioPreferences()
+    {
+        float appVolume = PlayerPrefs.GetFloat("Volume");
+        appVolume = appVolume == 0f ? 0.5f : appVolume;
+
+        specialAudio.volume = appVolume;
+        pointAudio.volume = appVolume;
     }
 
     public void UpdatePoints()
