@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public AudioSource pointAudio;
     public AudioSource specialAudio;
+    public GameObject endMenu;
 
     void Awake()
     {
@@ -60,5 +62,24 @@ public class LevelManager : MonoBehaviour
             highscore = currentPoints;
             PlayerPrefs.SetInt("Highscore", highscore);
         }
+    }
+
+    public void OpenEndMenu()
+    {
+        Time.timeScale = 0;
+        UpdateHighscore();
+        endMenu.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

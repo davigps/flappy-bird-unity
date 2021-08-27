@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Bird : MonoBehaviour
 {
@@ -22,19 +21,13 @@ public class Bird : MonoBehaviour
 
         if (transform.position.y > 13)
         {
-            RestartGame();
+            LevelManager.levelManager.RestartGame();
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        RestartGame();
-    }
-
-    private void RestartGame()
-    {
-        LevelManager.levelManager.UpdateHighscore();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        LevelManager.levelManager.OpenEndMenu();
     }
 
     private void GetPlayerInput()
