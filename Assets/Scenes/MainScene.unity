@@ -767,7 +767,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!61 &602434272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1255,7 +1255,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!4 &1366263662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8665015692024060087, guid: 389dbe2cce67a4f7f8334618feb4d10c, type: 3}
