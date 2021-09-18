@@ -27,6 +27,7 @@ public class Bird : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Time.timeScale = 0;
         LevelManager.levelManager.OpenEndMenu();
     }
 

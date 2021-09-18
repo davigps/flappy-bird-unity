@@ -66,7 +66,6 @@ public class LevelManager : MonoBehaviour
 
     public void OpenEndMenu()
     {
-        Time.timeScale = 0;
         UpdateHighscore();
         endMenu.SetActive(true);
     }
