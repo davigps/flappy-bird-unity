@@ -4,12 +4,14 @@ public class Bird : MonoBehaviour
 {
     public float speed;
     public float force;
+    public float rotationSpeed;
     private Rigidbody2D body;
     private float rotationZ;
-    public float rotationSpeed;
+    private bool crashed;
 
     void Start()
     {
+        crashed = false;
         body = GetComponent<Rigidbody2D>();
         body.velocity = Vector2.right * speed;
     }
@@ -19,15 +21,16 @@ public class Bird : MonoBehaviour
         GetPlayerInput();
         RotateBird();
 
-        if (transform.position.y > 13)
+        if (!crashed && transform.position.y > 13)
         {
-            LevelManager.levelManager.RestartGame();
+            crashed = true;
+            LevelManager.levelManager.OpenEndMenu();
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Time.timeScale = 0;
+        crashed = true;
         LevelManager.levelManager.OpenEndMenu();
     }
 
@@ -42,7 +45,7 @@ public class Bird : MonoBehaviour
                 ImpulseBird();
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             ImpulseBird();
         }
